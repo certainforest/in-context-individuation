@@ -1,0 +1,235 @@
+JO LING KENT: All right. Thank you for doing this with us today.
+
+DARIO AMODEI: Thank-- thanks for having me.
+
+JO LING KENT: We appreciate you taking the time. You are Dario Amodei, the CEO of Anthropic. Is that right?
+
+DARIO AMODEI: That's correct, yes.
+
+JO LING KENT: Great. Well, I-- my first question to you is why won't you release Anthropic's AI without restrictions to the U.S. government?
+
+DARIO AMODEI: Yeah. So, you know, we should maybe back up a bit for a little bit of context. So, you know, Anthropic actually has been the most lean forward of all the AI companies in working with the U.S. government and working with the U.S. military. We were the first company to, you know, put our models on the classified cloud.
+
+We were the first company to make custom models for national security purposes. We're deployed across the intelligence community and military for applications like cyber, you know, combat support operations, various things like this. And, you know, the reason we've done this is, you know, I-- I believe that we have to defend our country.
+
+I believe we have to defend our country from autocratic adversaries like China and like Russia. And so we've been-- we've been very, you know, we've been very lean forward. We have a substantial, you know, public sec team-- public sector team.
+
+But, you know, I have always believed that, you know, as we defend ourselves against our autocratic adversaries, we have to do so in ways that defend our democratic values and preserve our democratic values. And so we have said to the Department of War that we are okay with all use cases, basically 98% or 99% of the use cases they want to do, except for two that we're concerned about.
+
+One is domestic mass surveillance. There, we're worried that, you know, things may become possible with AI that weren't possible before. An example of this is something like taking data collected by private firms, having it bought by the government, and analyzing it in mass by AI.
+
+That actually isn't illegal. It was just never useful before the era of AI, so there's this way in which domestic mass surveillance is getting ahead of the law. The technology's advancing so fast that it's out of step with the law.
+
+That's case number one. Case number two is fully autonomous weapons. This is not the partially autonomous weapons that are used in Ukraine or, you know, could potentially be used in Taiwan today. This is the idea of making weapons that fire without any human involvement.
+
+Now, even those, I think that, you know, they, you know, our adversaries may at some point have them so perhaps, you know, they may-- they may at some point be needed for the defense of democracy. But we have some concerns about them. First, the AI systems of today are nowhere near reliable enough to make fully autonomous weapons.
+
+You know, anyone who's worked with AI models understands that there's a basic unpredictability to them that in a purely technical way we have not solved. And there's an oversight question too. If you have a large army of drones or robots that can operate without any human oversight, where there aren't human soldiers to make the decisions about who to target, who to shoot at, that-- that presents concerns. And we need to have a conversation about-- about how that's overseen. And we haven't had that conversation yet. And so we feel strongly that, you know, for-- for, you know, those two use cases should-- should not be allowed.
+
+JO LING KENT: The Pentagon has told us that they have agreed in principle to these two restrictions, and they wanted to strike a deal. Why couldn't an agreement be reached?
+
+DARIO AMODEI: So there were, you know, there there were kind of several stages of this, all done quickly and kind of all, you know, determined by the kind of three-day, you know, the kind of very limited three-day window that they gave us, right.
+
+They gave us an ultimatum to, you know, to agree to their terms in three days or, you know, be designated a supply chain risk or Defense Production Act, I guess we'll get to that later. But during that time, there were-- there were a few back and forths.
+
+You know, at one point, they sent us language that, you know, appeared on the surface to meet our terms, but it had all kinds of language like, "If the Pentagon deems it appropriate," or, you know, or, you know, or to do anything-- "to do anything in line with laws."
+
+So it didn't actually concede in any-- in-- it didn't actually concede in any meaningful way. And-- and there were further steps of it that-- that also did not concede in any meaningful way. We have wanted to strike a deal since the beginning.
+
+If you want to get a sense of the Pentagon's position of it, the Pentagon spokesman, Sean Parnell the day before tweet, you know, he reiterated their position, "We only allow all lawful use." And this was the same as when they sent-- what they sent us-- they sent us their terms. So they-- they have not exceeded in and in-- in-- in-- in-- in-- in-- they have not in any way-- agree-- agreed to our exceptions in any meaningful way.
+
+JO LING KENT: The president posted today in response to the situation, "Their selfishness," referring to Anthropic, "is putting American lives at risk, our troops in danger, and our national security in jeopardy." Is-- what do you think? What's your response?
+
+DARIO AMODEI: So, you know, in the statement we issued yesterday and also in the one we issued today, we said that we were willing, even if-- even if the Department of War or even if the Trump administration takes these unprecedented measures against us, this kind of supply chain designation that's normally used against foreign adversaries, we have said that, you know, even if they take these extreme actions, we'll do everything we can to support the Department of War to provide its technology for as long as it takes to off-board us and-- and on-board, you know, a competitor who's willing to do these things that-- that-- that we are not-- that we are not willing to do.
+
+JO LING KENT: Prepare to exit.
+
+DARIO AMODEI: Yeah, so-- so we have offered continuity. We're actually deeply concerned about this. We're deeply concerned about the-- the kind of interruption of service, which is exactly what's happening when we're designed a supply chain risk, right.
+
+When we're designated a supply chain risk, they say, like, you know, "You have to be off all of our systems." And I've talked to people on the ground, uniformed military officers, who say, "This is essential. Not having this will set us back six months, 12 months, maybe longer."
+
+And so that's why we've tried so hard to try to get it-- to try to-- to try to get a deal. But again, the three-day ultimatum, the risk to designate us a supply chain. The whole timeline has been driven by the Department of War, not by us. We are trying to provide continuity. We're trying to provide the services. We are trying to provide-- we are trying to reach a deal here.
+
+JO LING KENT: So then what does this mean for the safety of Americans?
+
+DARIO AMODEI: Yeah. You know, I would-- I would say a couple things. You know, in-- in the short run, it means, and, you know, it's-- it's-- it's up to the Department of War. You know, we're still trying to reach-- we're still trying to reach a deal with them.
+
+JO LING KENT: You are?
+
+DARIO AMODEI: Still trying to talk to them. You know--
+
+JO LING KENT: Are they talking with you?
+
+DARIO AMODEI: You know, we-- we-- we've received various communications. We haven't seen anything that, you know, that-- that satisfies our-- we haven't seen anything that satisfies our concerns. But, you know, I-- I mean that just in the broad sense, that we are still, you know, we are still interested in working with them as long as it in line with our red lines.
+
+JO LING KENT: But it sounds like you're still really far apart, and now Secretary Hegseth has determined you all a supply chain risk and said what he said. So do you think it's possible at this point to come to an agreement?
+
+DARIO AMODEI: You know, I-- look, an agreement requires both sides. We for-- for our side are willing to serve the national security of this country. We are willing to provide our models to all branches of the government, including the Department of War, the intelligence community, you know, the more civilian branches of the government under the terms that we've provided under our red lines.
+
+We are always willing to do that, right. You know, we're-- we're-- we're, you know, we-- we-- you know, we don't-- we don't take offense here. The-- the reason we're providing our technology in this way is that we want to support the, you know, national security of the United States.
+
+We're not doing it, you know, for the sake of Pentagon officials. We're not doing it for the sake of a particular administration. We're doing it because it's good for the national security of the United States. And we're gonna continue to do that.
+
+JO LING KENT: Why do you think that it is better for Anthropic, a private company, to have more say in how AI is used in the military than the Pentagon itself?
+
+DARIO AMODEI: So first I would say, and I think this is an important point, no one on the ground has actually, to our knowledge run into the limits of any of these-- of any of these exceptions. These are, excuse me. These are 1% of use cases and-- and ones that-- that we have seen no evidence on the ground have been done.
+
+Now-- now, again, I can't say what their plans are. That we don't know. But-- but we have no evidence that these use cases have actually-- have actually run into trouble. We've spread across the Department of War and other parts of the government without-- without running into any of these problems.
+
+Now, in terms of these one or two narrow exceptions, I actually agree that in the long run, we need to have a democratic conversation. In the long run, I actually do believe that it is Congress's job. If, for example, domest-- there are possibilities with domestic mass surveillance, government buying of, you know, bulk data that has been produced on Americans, locations, personal information, political affiliation to build profiles, and it's now possible to analyze that with AI.
+
+The fact that that's legal, that seems like, you know, the judicial interpretation of the Fourth Amendment has not caught up. Or the laws passed by Congress have not caught up. So in the long run, we think Congress should catch up with where the technology is going.
+
+But Congress is not the fastest moving body in the world. And for right now, we are the ones who see this technology on the front line. I would expect that the Department of War, I would expect them to be thoughtful about these issues, to, you know, to-- to proactively, you know, think-- think about these issues.
+
+And so I would have expected them not-- not to have any concern, and, you know, for us to have-- for us to have a conversation. But I think in the absence of that, you know, it, you know, we need to look at the technology. We need to look at what it's capable of in terms of reliability, and we need to look at the ways in which it's getting ahead of the law, and in-- and in which it's escaping the intent of the law.
+
+Those are some very narrow areas, but I think they're important. These are things that are fundamental to Americans, right. The-- the-- the-- the-- the right not to be spied on by the government, right. The-- the right for our military officers to make decisions about war themselves and not turn it over completely to a machine. These are-- these are fundamental principles.
+
+JO LING KENT: But in the name of fundamental principles, why should Americans trust you, the CEO of a private company to make these decisions instead of the federal government?
+
+DARIO AMODEI: Well, I would give-- I would give two answers to that. One, you know-- you know, we are-- we are a private company, right>
+
+JO LING KENT: Yeah.
+
+DARIO AMODEI: We can choose to sell or not sell whatever we want. There are other providers. If the DoW, the government, you know, doesn't like the services we provide or-- or-- or-- or the way that we make them, they can use another contractor. This would have been the normal way to handle this, right.
+
+Just to say, I would have disagreed but I would have respected them if they said, DoW "We don't want to work with Anthropic. Our principles are not aligned with yours. We're gonna go with one of the other models." But they've both extended that to parts of the government beyond the DoW and tried to punitively revoke our contracts beyond DoW.
+
+And they've done this supply chain designation thing, which basically says that "If you're part of-- if you're-- if you're another private company who has military contracts, you can't use Anthropic in-- in-- you can't use Anthropic in a way that touches those military contracts."
+
+So they're reaching in to the behavior of private enterprise. And it's very hard to interpret this in any way other than punitive. To our knowledge, the supply chain designation has never been applied to an American company. It has only been applied to ad-- you know, adversar-- like, you know, Kaspersky Labs, which is a Russian cybersecurity company that, you know, that is-- is, you know, suspected of-- suspected of ties to the Russian government. Chinese chip suppliers. You know, being-- being lumped in with them, it-- it feels very punitive and inappropriate, given the amount that we've done for U.S. national security.
+
+JO LING KENT: So you say you've done so much for U.S. national security. You're adhering to these two restrictions that you want to keep. Do you think that Anthropic knows better than the Pentagon here?
+
+DARIO AMODEI: We don't, look, you know, I-- one of the things about a free market and free enterprise is different folks can provide different products under different principles. Remember, this isn't just about terms of use. This isn't just about, you know, this is what our model is legally allowed to do.
+
+Our model has a personality. It's capable of certain things. It's able to do certain things reliably. It's able to not do certain things reliably. And I think we are a good judge of what our models can do reliably and what-- and what they cannot do reliably. And I think we do have a good view into how the technology again is getting ahead of the law. And I--
+
+JO LING KENT: So--
+
+DARIO AMODEI: --but I would say-- I would say again, I-- I-- I actually agree with you that this is not tenable in-- in the long term. I don't think the right long-term solution is for a private company and the Pentagon to argue about this. I think Congress needs to act here.
+
+And we are thinking about that. We are thinking about what Congress could do to impose some of these guardrails that don't hinder our ability to defeat our adversaries but that, you know, allow us to defeat our adversaries in a way that's in line with the values of-- in-- in line with the values of our country. But, as you know, Congress doesn't move fast.
+
+JO LING KENT: No.
+
+DARIO AMODEI: So, you know, I think-- I think-- I think in the meantime, we do need to draw a line in the sand.
+
+JO LING KENT: So until Congress acts, you're saying you are going to hold firm here. But there are so many other companies out there that do business with the U.S. government. Boeing builds aircraft for the U.S. military. Boeing doesn't tell the U.S. military what to do with that aircraft. How is this any different?
+
+DARIO AMODEI: Again, I would say two ways that it's different. One, I would point again to the newness of the technology, right. When a technology is well-established, then, you know, the-- the, you know, I-- you know, I mean, there are lots of technical things about aircrafts, but-- but, you know, I think-- I think-- you know, a general has a pretty good understanding of, like, how an aircraft works. Aircrafts have been around for a long time.
+
+JO LING KENT: But there's plenty of innovation inside their-- this industry.
+
+DARIO AMODEI: Sure, but not at the pace that-- not at the pace that we see with AI. AI is moving so fast, I've talked often about how AI is on an exponential trend. Every-- the models, the, you know, the-- the-- the-- the-- the amount of computation that goes into the models doubles every four months. We have never seen anything like this pace of innovation.
+
+JO LING KENT: But if that pace continues apace--
+
+DARIO AMODEI: Yes.
+
+JO LING KENT: --then the U.S. government will never be caught up. So how does that logic apply, if you have long argued that you want to work with the U.S. government to provide, you know, the appropriate national security. If it's going to be such a fast development for the foreseeable future, Congress can't catch up, then why turn your back on it--
+
+DARIO AMODEI: Well, I-- it-- I think there's only-- I think there's only catching up once, right. So the pace of the technology is fast. The issues that arise are few but very important. Again, we-- we only have two of these: domestic mass surveillance; fully autonomous weapons.
+
+We need to have a conversation with Congress to help them understand some-- some of the risks associated with it. Again, this is the most American thing in the world. No one wants to be spied on by the U.S. government. No one wants to be spied on by the U.S. government.
+
+JO LING KENT: At the exact same time, some of our greatest adversaries have technology that is either quickly catching up to us or will eventually do so, perhaps already caught up. And so our m-- if our military is critical to defending the American people and critical to our democracy, freedom, the republic, why stay in this position and say, "No, we're not gonna cooperate--"
+
+DARIO AMODEI: Again, you know, again, that's an abstract-- that's an abstract argument, but let's look at the actual two uses. Domestic mass surveillance does not help the U.S. catch up with its adversaries. Domestic mass surveillance is-- is, you know, is an abuse of the government's authority, even where it's technically legal. So that one we can rule out. Fully autonomous weapons, there I actually am concerned that we may need to keep up. It, you know, it-- it's-- it's not, you know--
+
+JO LING KENT: You do.
+
+DARIO AMODEI:  --the technology is not ready. And so we are not, as I said, we are not categorically against fully autonomous weapons. We simply believe that the reliability is not there yet, and that we need to have a conversation about oversight. And we have offered to work with the Department of War to help develop these technologies, to prototype them in a sandbox.
+
+But they weren't interested in this unless they could do whatever they want right from the beginning. And-- and-- and-- and so, you know, again, we-- we need to balance the existential need-- no one has emphasized it more than me-- to defeat our adversaries. But we need to fight-- we need to fight in the right way. You know, this is like saying--
+
+JO LING KENT: There are plenty of countries that are adversary--
+
+DARIO AMODEI: --if-- if adversaries commit war crimes, shouldn't we commit war crimes as well? I'm not saying this amounts to war crimes. What I'm saying is that the-- the-- the-- the essence of our values is that we have to find a way to win in a way that preserves those values.
+
+We can't just be a total race to the bottom. We-- we, you know, we have to have some principles. And these are very few. This technology can radically accelerate what our military can do. I've talked to admirals. I've talked to generals. I've talked to combatant commanders, who say, "This has revolutionized what we can do."
+
+And-- and-- and these are just the very limited use cases we've deployed so far. And-- and-- and so why harp on the 1% of use cases that are against our values when we can pursue the 99% of use cases that are in favor of our, that-- that-- that advance our democratic values and that defend this country. And-- and we can even try to study that last 1% of use cases to understand if there is a way to do them consistent with our values. That is our position, and I think that's very reasonable.
+
+JO LING KENT: I want to understand what is the worst case scenario that Americans should be familiar with when it comes to--
+
+JO LING KENT: Can I ask you about what is the worst case scenario? What people should be concerned about here? Give us a couple of examples. It would be very helpful for people to understand.
+
+JO LING KENT: I guess, like, what we want to understand is when you have these concerns about autonomous weapons, give me one or two examples of what could go wrong.
+
+DARIO AMODEI: So the-- the kind of thing that we-- I-- there-- there are two classes of things that I can imagine could-- could go wrong. One again is around this idea of reliability, which is just it targets the wrong person, it shoots a civilian. It doesn't show the judgment that a human sh-- that a human soldier would show.
+
+Friendly fire or shooting a civilian or just the wrong kind of thing. We don't want to sell something that we don't think is reliable, and we don't want to sell something that could get our own people killed or that could get innocent people killed.
+
+Second is this question of oversight. If you think about it, you know, you-- you-- human soldiers, there's, you know, there's a whole chain of accountability that assumes a human uses their common sense. Suppose I have an army of 10 million drones all coordinated by one person or a small set of people.
+
+Can't, you know, I think it's easy to see that there are accountability issues there, right. That-- that-- that, you know, concentrating power that much doesn't work. It-- it doesn't mean we shouldn't have this fleet. Again, I don't know. Maybe we need it at some point because our adversaries will have it. But we need to have a conversation about accountability, about who is holding the button and who can say no. And I think that's very reasonable.
+
+JO LING KENT: President Trump has called Anthropic "a left wing woke company." Is this decision at all driven by ideology?
+
+DARIO AMODEI: I-- look, I can't speak for what, you know, I can't speak for what other parties are doing and what they're doing.
+
+JO LING KENT: But you and you and Anthropic.
+
+DARIO AMODEI: Yeah, look. We-- we-- but we-- we I think have tried to be very neutral. We speak up on issues of AI policy where we have expertise. We don't-- we don't have views-- we don't think about general political issues, and we try to work together whenever there's common ground.
+
+For example, I went to an event in Pennsylvania with the president, with Senator McCormick-- about provisioning energy, provisioning enough energy to-- power our AI models in-- provision our AI models in the U.S. I spoke to the president.
+
+I, you know, I-- I-- I-- I expressed that I, you know, agreed with many aspects of what he's doing. We also did a pledge around-- you know, using-- using AI for health. And we've done a number of other things. When the AI Action, the administration's AI Action Plan k-- you know, when the administration's AI Action Plan came out, we said that there were, you know, many, perhaps most aspects of it that we agreed with.
+
+So this idea that we've somehow been partisan or that we haven't been evenhanded, we've been studiously evenhanded. And-- and again, we can't control if someone, even-- even the president, you know, ha-- has an opinion about us. That's not under our control. What's under our control is that we can be reasonable. We can be neutral. And we can stand up for what we believe.
+
+JO LING KENT: One to ten, will there be an agreement with the federal government on this in the future? Or do you think this is over?
+
+DARIO AMODEI: Look, I-- I-- I have no crystal ball. For our part, our position is clear. We have these two red lines. We've had them from day one. We are still-- you know, we are still advocating for those red lines. We're not gonna move on those red lines.
+
+If we can get to the point with the department where, you know, where, you know, we can see things the same way, then perhaps there could be an agreement. For our part and for the sake of U.S. national security, we, you know, we-- we continue to want to make this work. But-- you know, again, it takes two parties to have an agreement.
+
+JO LING KENT: If you had a moment with the president right now tonight, what would you say to him?
+
+DARIO AMODEI: You know, I, again, I would say, we are patriotic Americans. We have done-- everything we have done has been for the sake of this country, for the sake of supporting U.S. national security. Our leaning forward in deploying our models with the military was done because we believe in this country.
+
+We believe in-- defeating our autocratic adversaries. We believe in defending America. The red lines we have drawn we drew because we-- we-- we-- we believe that crossing those red lines is-- is contrary to American values. And we wanted to stand up for American values.
+
+And when we were threatened with supply chain designation and Defense Production Act, which are unprecedented intrusions into the private economy by the government, we-- we exercised our classic First Amendment rights to speak up and disagree with the government. Disagreeing with the government is the most American thing in the world. And we are patriots. In everything we have done here, we have stood up for the values of this country.
+
+JO LING KENT: Do you think Anthropic can survive this as a business?
+
+DARIO AMODEI: You know-- when-- when the presi-- when-- Secretary Hegseth tweeted out the supply chain designation, he said something that was inaccurate that far exceeds their lawful authority. He said that "Any company that has a military contract can't do business with Anthropic at all."
+
+That is not what the law said. We put out a statement that pointed to the law. All the law says is that, "As part of its military contracts, any company cannot use Anthropic as part of those military contracts." That is a ver-- that is a much more limited impact.
+
+JO LING KENT: So you're confident then Anthropic can survive this.
+
+DARIO AMODEI: Not-- not only survive it. We're gonna be fine. The-- the impact of this designation is fairly small. Now, the nature of the tweet that the secretary put out was designed to create uncertainty, was designed to create a situation where people believed the impact would be much larger, was designed to create fear, uncertainty, and doubt. But we won't let that succeed. We will be fine--
+
+JO LING KENT: Critics call this an abuse of power, what the Pentagon is doing and what the White House is doing. Do you believe this is an abuse of power?
+
+DARIO AMODEI: You know, again, I would return to the idea that this is unprecedented.
+
+JO LING KENT: But is it an abuse of power?
+
+DARIO AMODEI: You know, this has never happened before. This designation has never happened before with an American company. And I think it was made very clear in some of their statements, in some of their language that this was retaliatory and punitive. I don't-- I don't-- I don't know what else-- what else to call it. Retaliatory and punitive.
+
+JO LING KENT: So will you take legal action?
+
+DARIO AMODEI: We-- we-- I-- I-- I've stated-- I've stated in our statement, again, all we've received is a tweet. We haven't received an actual supply chain desig-- you know, there's -- there's been no actual action by the government. There's just been tweets saying what they're going-- saying what they claim they're going to do. And--
+
+JO LING KENT: You haven't received any formal information--
+
+DARIO AMODEI: We-- we haven't received any formal information whatsoever. All we've seen are tweets from the president and tweets from Secretary Hegseth. When-- when-- when-- when we receive some kind of formal action, we will look at it, we will understand it, and we will challenge it in court.
+
+JO LING KENT: What do you think that says about their ability to navigate major national security issues, if this is the way that you say they're communicating with you?
+
+DARIO AMODEI: Again, you know, I-- I-- I don't want to make this-- I don't want to make this about this particular administration. I don't want to make this about particular people. We are trying to do whatever we can to support U.S. national security.
+
+That's why we're committed to trying to find a deal. If we can't find a deal, that is why we're committed to-- to off-boarding in, you know, in a-- in a smooth way that allows our warfighters to continue to be supported as they-- as they go into conflicts.
+
+And that's why we're committed to standing up to-- you know, actions that we think are not in line with the values of this country. It's-- it's not about any particular person. It's not about any particular administration. It's about the principle of standing up for what's right.
+
+JO LING KENT: Dario Amodei, CEO of Anthropic, thank you very much. I appreciate your coming.
+
+DARIO AMODEI: Thank you so much for having me.
+
+JO LING KENT: Thank you.
