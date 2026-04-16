@@ -1,7 +1,14 @@
+import os 
+import re 
+import requests
 import bisect
+import pandas as pd
+from openai import OpenAI
+from dotenv import load_dotenv
 from itertools import accumulate
 from pathlib import Path
-import pandas as pd
+
+load_dotenv()
 
 def parse_transcript(doc_path, speakers):
     """
@@ -165,3 +172,33 @@ def flag_message_types(
     ]
 
     return df
+
+def send_openrouter_request_oai(
+    messages,
+    model="google/gemini-2.5-pro",
+    temperature=0.0,
+    max_tokens=4000,
+):
+    """
+    A simple function that submits a single prompt to a selected model on OpenRouter.
+    Temperature is set to 0 by default for reproducibility.
+    """
+    client = OpenAI(
+        base_url="https://openrouter.ai/api/v1",
+        api_key=os.getenv("OPENROUTER_API_KEY"),
+    )
+
+    response = client.chat.completions.create(
+        model=model,
+        messages=messages,
+        temperature=temperature,
+        max_tokens=max_tokens,
+        extra_body={"provider": {"order": ["deepinfra/fp4"]}},
+    )
+
+    final_response = response.choices[0].message.content
+    reason = response.choices[0].message.reasoning
+
+    return final_response, reason
+
+
