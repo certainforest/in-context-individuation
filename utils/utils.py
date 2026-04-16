@@ -10,22 +10,31 @@ from pathlib import Path
 
 load_dotenv()
 
-def parse_transcript(doc_path, speakers):
+def parse_transcript(doc_path, speakers, chunk_size: int | None = None):
     """
-    Parse transcript into line-level records.
+    Parse transcript into line-level records, with optional fixed-size chunks.
 
     A turn is defined as all contiguous lines spoken by the same speaker.
     If a line starts with 'SPEAKER:', that starts a new turn.
     Otherwise, the line is treated as a continuation of the current turn.
 
-    Returns
-    -------
-    lines : list[dict]
+    If chunk_size is None (default), returns line-level records:
         Each dict has:
-        - line_id
-        - turn_id
-        - turn_speaker
-        - line_text
+            - line_id
+            - turn_id
+            - turn_speaker
+            - line_text
+
+    If chunk_size is set (e.g., 25), returns chunk records:
+        Each dict has:
+            - source
+            - chunk_ix
+            - lines
+            - speakers
+            - speaker_line_count
+            - baseline_text
+            - unlabeled_text
+            - num_turns
     """
     with Path(doc_path).open("r", encoding = "utf-8") as f:
         raw_lines = [line.strip() for line in f if line.strip()]
@@ -59,7 +68,45 @@ def parse_transcript(doc_path, speakers):
                 "line_text": text,
             })
 
-    return lines
+    if chunk_size is None:
+        return lines
+    if chunk_size <= 0:
+        raise ValueError("chunk_size must be a positive integer")
+
+    chunks = []
+    doc_stem = Path(doc_path).stem
+
+    for chunk_ix, start_ix in enumerate(range(0, len(lines), chunk_size)):
+        chunk_lines = lines[start_ix:start_ix + chunk_size]
+        if not chunk_lines:
+            continue
+
+        speaker_line_count = {}
+        for row in chunk_lines:
+            speaker = row["turn_speaker"]
+            speaker_line_count[speaker] = speaker_line_count.get(speaker, 0) + 1
+
+        first_line_id = chunk_lines[0]["line_id"]
+        last_line_id = chunk_lines[-1]["line_id"]
+        speakers_in_chunk = set(speaker_line_count.keys())
+        unique_turns = {row["turn_id"] for row in chunk_lines}
+
+        chunks.append(
+            {
+                "source": f"{doc_stem}:{first_line_id}-{last_line_id}",
+                "chunk_ix": chunk_ix,
+                "lines": chunk_lines,
+                "speakers": speakers_in_chunk,
+                "speaker_line_count": speaker_line_count,
+                "baseline_text": "\n".join(
+                    [f"{row['turn_speaker']}: {row['line_text']}" for row in chunk_lines]
+                ) + "\n",
+                "unlabeled_text": "\n".join([row["line_text"] for row in chunk_lines]) + "\n",
+                "num_turns": len(unique_turns),
+            }
+        )
+
+    return chunks
 
 def flag_message_types(
     sample_level_df: pd.DataFrame,
@@ -173,6 +220,8 @@ def flag_message_types(
 
     return df
 
+
+##### Openrouter functions #####
 def send_openrouter_request_oai(
     messages,
     model="google/gemini-2.5-pro",
@@ -196,9 +245,61 @@ def send_openrouter_request_oai(
         extra_body={"provider": {"order": ["deepinfra/fp4"]}},
     )
 
-    final_response = response.choices[0].message.content
-    reason = response.choices[0].message.reasoning
+    message = response.choices[0].message
+    final_response = message.content
+    reason = getattr(message, "reasoning", None)
 
     return final_response, reason
 
+## Restyling (for variants)
+def restyle_variant_text(
+    transcript_text: str,
+    instruction: str,
+    model: str = "google/gemini-2.5-pro",
+    temperature: float = 0.8,
+    max_tokens: int = 4000,
+) -> tuple[str, str | None]:
+    """
+    Restyle a transcript using a single free-form instruction.
 
+    Args:
+        transcript_text: Full transcript text.
+        instruction: Free-form instruction, e.g.
+            "Make all text belonging to speaker PINK all caps."
+        model: OpenRouter model id.
+        temperature: Sampling temperature.
+        max_tokens: Max generated tokens.
+
+    Returns:
+        Tuple of (restyled_transcript, reasoning).
+    """
+    if not transcript_text or not transcript_text.strip():
+        raise ValueError("transcript_text must be a non-empty string")
+    if not instruction or not instruction.strip():
+        raise ValueError("instruction must be a non-empty string")
+
+    system_prompt = (
+        "You rewrite transcripts. "
+        "Return only the transformed transcript text with no commentary."
+    )
+    user_prompt = f"""
+Instruction:
+{instruction}
+
+Transcript:
+{transcript_text}
+""".strip()
+
+    messages = [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": user_prompt},
+    ]
+
+    response, reason = send_openrouter_request_oai(
+        messages=messages,
+        model=model,
+        temperature=temperature,
+        max_tokens=max_tokens,
+    )
+
+    return response.strip(), reason
