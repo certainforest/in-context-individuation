@@ -1,12 +1,14 @@
-import os 
-import re 
-import requests
+import os
+import re
+import time
+import asyncio
 import bisect
+import requests
 import pandas as pd
-from openai import OpenAI
 from dotenv import load_dotenv
 from itertools import accumulate
 from pathlib import Path
+
 
 load_dotenv()
 
@@ -36,7 +38,7 @@ def parse_transcript(doc_path, speakers, chunk_size: int | None = None):
             - unlabeled_text
             - num_turns
     """
-    with Path(doc_path).open("r", encoding = "utf-8") as f:
+    with Path(doc_path).open("r", encoding="utf-8") as f:
         raw_lines = [line.strip() for line in f if line.strip()]
 
     lines = []
@@ -222,34 +224,80 @@ def flag_message_types(
 
 
 ##### Openrouter functions #####
-def send_openrouter_request_oai(
+def send_openrouter_request(
     messages,
     model="google/gemini-2.5-pro",
+    provider_order=None,
+    allow_fallbacks=True,
     temperature=0.0,
     max_tokens=4000,
 ):
     """
-    A simple function that submits a single prompt to a selected model on OpenRouter.
-    Temperature is set to 0 by default for reproducibility.
+    Submit a prompt to OpenRouter using requests.
+    Returns: (final_response, reasoning, refusal, provider)
     """
-    client = OpenAI(
-        base_url="https://openrouter.ai/api/v1",
-        api_key=os.getenv("OPENROUTER_API_KEY"),
-    )
+    if provider_order is None:
+        provider_order = ["deepinfra/fp4", "google-vertex/global", "google-vertex/us"]
 
-    response = client.chat.completions.create(
-        model=model,
+    openrouter_url = "https://openrouter.ai/api/v1/chat/completions"
+    api_key = os.getenv("OPENROUTER_API_KEY")
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json",
+        "X-Title": "gptoss-jailbreak-evals",
+        "HTTP-Referer": "https://localhost",
+    }
+
+    payload = {
+        "model": model,
+        "messages": messages,
+        "temperature": temperature,
+        "max_tokens": max_tokens,
+    }
+
+    if provider_order is not None:
+        payload["provider"] = {
+            "order": provider_order,
+            "allow_fallbacks": allow_fallbacks,
+        }
+
+    for attempt in range(3):
+        try:
+            r = requests.post(openrouter_url, headers=headers, json=payload, timeout=120)
+            r.raise_for_status()
+            data = r.json()
+            message = data["choices"][0]["message"]
+            final_response = message.get("content")
+            reasoning = message.get("reasoning")
+            refusal = message.get("refusal")
+            provider = data.get("provider")
+            return final_response, reasoning, refusal, provider
+        except requests.RequestException as e:
+            if attempt < 2:
+                time.sleep(2 ** attempt)
+            else:
+                raise e
+
+async def send_openrouter_request_async(
+    messages,
+    model="google/gemini-2.5-pro",
+    provider_order=None,
+    allow_fallbacks=True,
+    temperature=0.0,
+    max_tokens=4000,
+):
+    """
+    Async wrapper for send_openrouter_request.
+    """
+    return await asyncio.to_thread(
+        send_openrouter_request,
         messages=messages,
+        model=model,
+        provider_order=provider_order,
+        allow_fallbacks=allow_fallbacks,
         temperature=temperature,
         max_tokens=max_tokens,
-        extra_body={"provider": {"order": ["deepinfra/fp4"]}},
     )
-
-    message = response.choices[0].message
-    final_response = message.content
-    reason = getattr(message, "reasoning", None)
-
-    return final_response, reason
 
 ## Restyling (for variants)
 def restyle_variant_text(
@@ -295,7 +343,7 @@ Transcript:
         {"role": "user", "content": user_prompt},
     ]
 
-    response, reason = send_openrouter_request_oai(
+    response, reason, _, _ = send_openrouter_request(
         messages=messages,
         model=model,
         temperature=temperature,
