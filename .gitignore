@@ -7,9 +7,10 @@ wheels/
 
 .venv
 .env
+.DS_Store
 
 # misc. 
 .claude/
 .hf_cache/
 .mcp.json
-.tmp/
+.tmp
