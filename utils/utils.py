@@ -10,7 +10,6 @@ from dotenv import load_dotenv
 from itertools import accumulate
 from pathlib import Path
 
-
 load_dotenv()
 
 def parse_transcript(doc_path, speakers, chunk_size: int | None = None):
@@ -395,6 +394,11 @@ Transcript:
 
     return response.strip(), reason
 
+# 
+
+
+
+# slack notification
 def send_slack(text): 
     '''basic slack request w/ webhook'''
     url = os.getenv('SLACK_WEBHOOK_URL')
