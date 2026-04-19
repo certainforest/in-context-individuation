@@ -3,6 +3,7 @@ import re
 import time
 import asyncio
 import bisect
+import copy
 import requests
 import pandas as pd
 from dotenv import load_dotenv
@@ -224,6 +225,9 @@ def flag_message_types(
 
 
 ##### Openrouter functions #####
+LAST_OPENROUTER_REQUEST = None
+LAST_OPENROUTER_ERROR = None
+
 def send_openrouter_request(
     messages,
     model="google/gemini-2.5-pro",
@@ -231,6 +235,8 @@ def send_openrouter_request(
     allow_fallbacks=True,
     temperature=0.0,
     max_tokens=4000,
+    reasoning=None,
+    debug_request=False,
 ):
     """
     Submit a prompt to OpenRouter using requests.
@@ -255,11 +261,23 @@ def send_openrouter_request(
         "max_tokens": max_tokens,
     }
 
+    if reasoning is not None:
+        if not isinstance(reasoning, dict):
+            raise TypeError("reasoning must be a dict when provided")
+        payload["reasoning"] = reasoning
+
     if provider_order is not None:
         payload["provider"] = {
             "order": provider_order,
             "allow_fallbacks": allow_fallbacks,
         }
+
+    global LAST_OPENROUTER_REQUEST, LAST_OPENROUTER_ERROR
+    LAST_OPENROUTER_REQUEST = {
+        "url": openrouter_url,
+        "payload": copy.deepcopy(payload),
+    }
+    LAST_OPENROUTER_ERROR = None
 
     for attempt in range(3):
         try:
@@ -273,6 +291,19 @@ def send_openrouter_request(
             provider = data.get("provider")
             return final_response, reasoning, refusal, provider
         except requests.RequestException as e:
+            status_code = getattr(getattr(e, "response", None), "status_code", None)
+            error_body = getattr(getattr(e, "response", None), "text", None)
+            LAST_OPENROUTER_ERROR = {
+                "attempt": attempt + 1,
+                "status_code": status_code,
+                "error_body": error_body,
+                "exception": str(e),
+            }
+            if debug_request:
+                print("OpenRouter request failed.")
+                print("Request payload:", LAST_OPENROUTER_REQUEST["payload"])
+                print("Status code:", status_code)
+                print("Error body:", error_body)
             if attempt < 2:
                 time.sleep(2 ** attempt)
             else:
@@ -285,19 +316,31 @@ async def send_openrouter_request_async(
     allow_fallbacks=True,
     temperature=0.0,
     max_tokens=4000,
+    reasoning=None,
+    debug_request=False,
 ):
     """
     Async wrapper for send_openrouter_request.
     """
     return await asyncio.to_thread(
         send_openrouter_request,
-        messages=messages,
         model=model,
+        messages=messages,
         provider_order=provider_order,
         allow_fallbacks=allow_fallbacks,
         temperature=temperature,
         max_tokens=max_tokens,
+        reasoning=reasoning,
+        debug_request=debug_request,
     )
+
+
+def get_last_openrouter_debug():
+    """Return the most recent OpenRouter request payload and error."""
+    return {
+        "request": LAST_OPENROUTER_REQUEST,
+        "error": LAST_OPENROUTER_ERROR,
+    }
 
 ## Restyling (for variants)
 def restyle_variant_text(
@@ -344,10 +387,16 @@ Transcript:
     ]
 
     response, reason, _, _ = send_openrouter_request(
-        messages=messages,
         model=model,
+        messages=messages,
         temperature=temperature,
         max_tokens=max_tokens,
     )
 
     return response.strip(), reason
+
+def send_slack(text): 
+    '''basic slack request w/ webhook'''
+    url = os.getenv('SLACK_WEBHOOK_URL')
+    msg = requests.post(url, json = {'text': text})
+    return msg

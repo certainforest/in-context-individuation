@@ -18,6 +18,7 @@ dependencies = [
     "pandas>=3.0.2",
     "plotly>=6.7.0",
     "pyjanitor>=0.32.23",
+    "rpy2>=3.6.7",
     "torch>=2.11.0",
 ]
 
