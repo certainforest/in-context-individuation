@@ -2,6 +2,7 @@
 # relevant for exp. 2.3
 import os
 import random
+import pandas as pd
 from utils.utils import send_openrouter_request, flag_message_types
 
 # STYLE/CASING 
@@ -140,7 +141,13 @@ def get_representations(
     style_exp_hs = style_hs[ststart:].float().cpu().numpy()
     style_exp_hs_reverse = style_hs_reverse[ststartrev:].float().cpu().numpy()
 
-    return baseline_exp_hs, style_exp_hs, style_exp_hs_reverse
+    return {
+        'baseline_exp_hs': baseline_exp_hs,
+        'style_exp_hs': style_exp_hs,
+        'style_exp_hs_reverse': style_exp_hs_reverse
+        }
+
+
 
     
     
